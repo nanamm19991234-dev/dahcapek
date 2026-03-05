@@ -131,10 +131,10 @@ namespace firebase {
     //============================
     //% subcategory="Firebase"
     //% block="Get Data path %path value %value"
-    export function getData(path: string, value: string): number {
+    export function getData(path: string, value: string): boolean {
 
-        if (!esp8266.isWifiConnected()) return -1
-        if (serverHost == "") return -1
+        if (!esp8266.isWifiConnected()) return false
+        if (serverHost == "") return false
 
         let port = useSSL ? 443 : 80
         let proto = useSSL ? "SSL" : "TCP"
@@ -143,7 +143,7 @@ namespace firebase {
             "AT+CIPSTART=\"" + proto + "\",\"" + serverHost + "\"," + port,
             "OK",
             5000
-        )) return -1
+        )) return false
 
         if (path.charAt(0) != "/") {
             path = "/" + path
@@ -161,9 +161,9 @@ namespace firebase {
 
         esp8266.sendCommand("AT+CIPCLOSE", "OK", 1000)
 
-        if (response.indexOf("1") >= 0) return 1
-        if (response.indexOf("0") >= 0) return 0
+        if (response.indexOf("1") >= 0) return true
+        if (response.indexOf("0") >= 0) return false
 
-        return -1
+        return false
     }
 }
