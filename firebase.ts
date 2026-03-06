@@ -54,7 +54,7 @@ namespace firebase {
     //============================
     //% subcategory="Firebase"
     //% block="Send Sensor|name %name|value %value"
-    export function sendSensor(name: string, value: string) {
+    export function sendSensor(name: string, value: number) {
 
         uploadSuccess = false
         if (!esp8266.isWifiConnected()) return
