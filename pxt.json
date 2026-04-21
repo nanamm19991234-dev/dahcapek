@@ -1,8 +1,8 @@
 {
-    "name": "iot-nfc-extension",
-    "version": "1.0.0",
-    "description": "Merged IoT & NFC extensions",
-    "license": "MIT",
+    "name": "gua butuh duit",
+    "version": "100.000",
+    "description": "gua butuh duit",
+    "license": "IDN",
     "dependencies": {
         "core": "*",
         "radio": "*",
